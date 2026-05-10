@@ -1,0 +1,44 @@
+// Diet soda review catalog — SQLite locally; switch provider/url for Postgres in production.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+/// One reviewed diet soda product.
+model DietSoda {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// Display title (e.g. product line).
+  title    String
+  slug     String @unique
+  imageUrl String
+
+  /// 1–5 star overall rating (stored as integer; UI renders ★).
+  ratingStars Int @default(3)
+
+  /// Eight structured review dimensions (adjust labels in the CMS UI copy).
+  reviewCategory    String @default("") /// e.g. Cola, Citrus, Cream
+  brand             String @default("")
+  sweetenerSystem   String @default("") /// Aspartame, Sucralose, blend…
+  carbonation       String @default("") /// Soft / Sharp / Flat …
+  appearance        String @default("") /// Color, clarity, head…
+  aroma             String @default("")
+  primaryFlavor     String @default("")
+  finishAftertaste  String @default("")
+
+  /// Free-form closing verdict (“final take”).
+  finalTake String @default("")
+
+  /// General classification tags (JSON array of strings).
+  tags Json @default("[]")
+
+  /// Flavor-note tags (JSON array of strings).
+  flavorNoteTags Json @default("[]")
+}
