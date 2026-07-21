@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import type { DietSoda } from "@/generated/prisma";
+import type { DietSoda } from "@/data/sodas";
 import { renderStars } from "@/lib/stars";
 
 function jsonToStrings(value: unknown): string[] {

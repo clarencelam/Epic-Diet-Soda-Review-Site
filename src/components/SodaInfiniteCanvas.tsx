@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { DietSoda } from "@/generated/prisma";
+import type { DietSoda } from "@/data/sodas";
 import { SodaModal } from "./SodaModal";
 
 const BG = "#f6f0e6";
@@ -168,14 +167,6 @@ export function SodaInfiniteCanvas({ sodas }: Props) {
         onPointerUp={endPointer}
         onPointerCancel={endPointer}
       >
-        <Link
-          href="/admin"
-          onPointerDown={(e) => e.stopPropagation()}
-          className="absolute right-4 top-4 z-10 rounded-full border border-black/10 bg-white/80 px-3 py-1.5 text-xs font-medium text-stone-700 shadow-sm backdrop-blur hover:bg-white"
-        >
-          Manage
-        </Link>
-
         <p className="pointer-events-none absolute left-4 top-4 z-10 max-w-[min(90vw,280px)] text-xs leading-snug text-stone-500">
           Drag to explore · Release on a can without dragging to open details
         </p>

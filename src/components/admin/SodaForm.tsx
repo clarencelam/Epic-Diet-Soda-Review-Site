@@ -1,4 +1,4 @@
-import type { DietSoda } from "@/generated/prisma";
+import type { DietSoda } from "@/data/sodas";
 import { SODA_FORM_FIELDS } from "@/app/admin/_fields";
 import { tagsToCsv } from "@/lib/json-tags";
 
