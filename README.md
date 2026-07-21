@@ -1,23 +1,15 @@
 # Diet Soda Atlas
 
-A static, database-free catalog of diet soda reviews.
+A dependency-free static website. GitHub Pages can publish it directly from the repository root.
 
-## Edit the catalog
-
-Update the `sodas` array in `src/data/sodas.ts`, then commit and redeploy. The public API at `/api/sodas` returns the same static catalog.
-
-The `/admin` page explains this workflow; creating, editing, and deleting catalog entries in the browser is intentionally disabled.
-
-## Development
+## Run locally
 
 ```bash
 npm run dev
 ```
 
-## Deploy
+Then open http://localhost:3000.
 
-```bash
-npm run build
-```
+## Update the catalog
 
-No environment variables, database, Prisma client, or migration step are required.
+Edit `data.js`, commit the change, and push to GitHub. No database, build service, or environment variables are required.
